@@ -54,6 +54,9 @@
                 lettersGuessed = [];
                 gameOver = false;
                 window.addEventListener("keydown", eventKeyPressed, true);
+
+                var formElement = document.getElementById("createImageData");
+                formElement.addEventListener('click', createImageDataPressed, false);
                 drawScreen();
             }
 
@@ -82,6 +85,10 @@
                 }
             }
 
+            function createImageDataPressed(e) {
+                window.open(theCanvas.toDataURL(), "canvasImage",
+                        "left=0, top=0, width=" + theCanvas.width + ",height=" + theCanvas.height + ",toolbar=0,resizable=0");
+            }
             function drawScreen() {
                 //Background
                 context.fillStyle = "#ffffaa";
@@ -135,5 +142,9 @@
     <canvas id="canvasOne" width="500" height="300">
         Your Browser does not support HTML5 Canvas - Use FireFox!
     </canvas>
+    <form>
+        <input type="button" id="createImageData" value="Export Canvas Image"/>
+    </form>
+</div>
 </body>
 </html>
