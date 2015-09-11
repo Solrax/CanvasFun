@@ -6,49 +6,39 @@
     <script type="text/javascript">
         window.addEventListener("load", eventWindowLoaded, false);
 
-        var Debugger = function()
-        {
+        var Debugger = function() {
         };
-        Debugger.log = function (message)
-        {
-            try
-            {
+        Debugger.log = function (message){
+            try {
                 console.log(message);
             }
-            catch (exception)
-            {
+            catch (exception) {
                 return;
             }
         }
 
-        function eventWindowLoaded()
-        {
+        function eventWindowLoaded() {
             canvasApp();
         }
 
-        function canvasApp()
-        {
+        function canvasApp() {
             var theCanvas = document.getElementById("canvasOne");
 
-            function CanvasSupport()
-            {
-                if (!theCanvas || !theCanvas.getContext)
-                {
+            function CanvasSupport() {
+                if (!theCanvas || !theCanvas.getContext) {
                     return false;
                 }
                 return true;
             }
 
-            if (!CanvasSupport())
-            {
+            if (!CanvasSupport()) {
                 return;
             }
 
             var context = theCanvas.getContext("2d");
 
 
-            function drawScreen()
-            {
+            function drawScreen() {
                 // background
                 context.fillStyle = "#ffffaa";
                 context.fillRect(0, 0, 500, 300);
@@ -61,8 +51,7 @@
 
                 // image
                 var helloWorldImage = new Image();
-                helloWorldImage.onload = function ()
-                {
+                helloWorldImage.onload = function () {
                     context.drawImage(helloWorldImage, 155, 110);
                 }
                 helloWorldImage.src = "images/FACE_transparent.jpg";
